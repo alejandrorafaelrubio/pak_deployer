@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: pakpipeline-
+  namespace: default
+spec:
+  params:
+    - name: name
+      value: deployer_pak
+  pipelineRef:
+    name: pakpipeline
+  serviceAccountName: pipeline
+  timeouts:
+    pipeline: 8h0m0s
